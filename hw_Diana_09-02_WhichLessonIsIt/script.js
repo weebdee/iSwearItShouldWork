@@ -4,6 +4,7 @@ class Proger {
         this.name = name;
         this.stack = stack;
     }
+    // методы с маленькой пишутся
     Learn() {
         return `Proger named ${this.name} is learning ${this.stack}`;
     }
@@ -35,6 +36,8 @@ class Mentor extends Proger {
     Learn(newStack) {
         return this.stack.push(...newStack);
     }
+    // по условию метод принимает не сам стэк, а его владельца:
+    // teach(proger, tech) {...} 
     Teach(someoneStack, tech) {
         return someoneStack.push(tech)
     }
@@ -42,6 +45,7 @@ class Mentor extends Proger {
 
 const mentor = new Mentor('InsertName', ['React'])
 mentor.Learn(['JS', 'Angular']);
+// лучше будет с
 mentor.Teach(mentor.stack, 'Vue')
 console.log(mentor);
 
@@ -59,6 +63,7 @@ class Teacher extends Proger {
 }
 
 const teacher = new Teacher('Adilet', ['JS'])
+// Я не такой быстрый, чтоб всё за раз выучить)
 teacher.Learn(['React', 'Vue', 'Angular'])
 console.log(teacher);
 console.log(teacher.Teach());
